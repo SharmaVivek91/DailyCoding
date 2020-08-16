@@ -1,0 +1,18 @@
+#Isomorphic String
+class Day01 {
+    boolean isIsomorphic(final String a, final String b) {
+        final HashMap<Character, Character> dict = new HashMap<>();
+        final char ca[] = a.toCharArray();
+        final char cb[] = b.toCharArray();
+        for(int i=0; i<ca.length; i++) {
+            if(!dict.containsKey(ca[i])) {
+                if(!dict.containsValue(cb[i])) dict.put(ca[i],cb[i]);
+                else return false;
+            }
+            else{
+                if(dict.get(ca[i]) != cb[i]) return false;
+            }
+        }
+        return true;
+    }
+}
